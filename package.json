@@ -1,0 +1,14 @@
+{
+  "name": "iqon-age",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev --port 3456",
+    "build": "astro build",
+    "preview": "astro preview --port 3456"
+  },
+  "dependencies": {
+    "astro": "^5.7.10"
+  }
+}

@@ -1,0 +1,181 @@
+<!-- Philosophy Section — Volumetric Light Burst (x.ai inspired) -->
+<section class="philosophy" id="philosophy">
+  <!-- Glow layers — ordered back to front -->
+  <div class="philo-glow-ambient"></div>
+  <div class="philo-glow-burst"></div>
+  <div class="philo-glow-core"></div>
+  <div class="philo-glow-flare"></div>
+  <div class="philo-vignette"></div>
+  <p class="philosophy-text" id="philosophyText">
+    In every era, certain entities are not merely remembered as brands. They are remembered as icons. They do not compete within their domain. They define it.
+  </p>
+</section>
+
+<style>
+  .philosophy {
+    padding: 120px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 65vh;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+  }
+
+  /* ── Wide atmospheric haze ── */
+  .philo-glow-ambient {
+    position: absolute;
+    width: 160%; height: 160%;
+    top: -30%; left: -30%;
+    background: radial-gradient(ellipse 50% 45% at 50% 50%,
+      rgba(160, 75, 25, 0.45) 0%,
+      rgba(120, 55, 18, 0.2) 30%,
+      rgba(80, 35, 10, 0.08) 55%,
+      transparent 75%);
+    pointer-events: none;
+    animation: ambientDrift 14s ease-in-out infinite;
+  }
+
+  @keyframes ambientDrift {
+    0%, 100% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.06); opacity: 1; }
+  }
+
+  /* ── Main radiating burst — the big glow ── */
+  .philo-glow-burst {
+    position: absolute;
+    width: 1200px; height: 900px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(ellipse 100% 80% at 50% 50%,
+      rgba(255, 200, 130, 0.55) 0%,
+      rgba(240, 130, 60, 0.3) 15%,
+      rgba(212, 90, 42, 0.15) 35%,
+      rgba(160, 60, 20, 0.06) 55%,
+      transparent 75%);
+    filter: blur(40px);
+    pointer-events: none;
+    animation: burstPulse 8s ease-in-out infinite;
+  }
+
+  @keyframes burstPulse {
+    0%, 100% { opacity: 0.9; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.06); }
+  }
+
+  /* ── Bright white-hot center core ── */
+  .philo-glow-core {
+    position: absolute;
+    width: 600px; height: 450px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(ellipse 100% 80% at 50% 50%,
+      rgba(255, 250, 240, 0.7) 0%,
+      rgba(255, 220, 170, 0.5) 10%,
+      rgba(255, 190, 130, 0.3) 25%,
+      rgba(240, 130, 60, 0.12) 45%,
+      rgba(212, 90, 42, 0.04) 65%,
+      transparent 80%);
+    filter: blur(25px);
+    pointer-events: none;
+    animation: corePulse 6s ease-in-out infinite;
+  }
+
+  @keyframes corePulse {
+    0%, 100% { opacity: 0.9; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); }
+  }
+
+  /* ── Horizontal lens flare streak ── */
+  .philo-glow-flare {
+    position: absolute;
+    width: 140%; height: 3px;
+    top: 50%; left: -20%;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 210, 170, 0.04) 10%,
+      rgba(255, 220, 180, 0.2) 28%,
+      rgba(255, 240, 220, 0.5) 44%,
+      rgba(255, 250, 245, 0.7) 50%,
+      rgba(255, 240, 220, 0.5) 56%,
+      rgba(255, 220, 180, 0.2) 72%,
+      rgba(255, 210, 170, 0.04) 90%,
+      transparent 100%);
+    filter: blur(2px);
+    pointer-events: none;
+    animation: flarePulse 6s ease-in-out infinite;
+  }
+
+  /* Secondary wider soft flare band */
+  .philo-glow-flare::before {
+    content: '';
+    position: absolute;
+    width: 70%; height: 80px;
+    top: -38px; left: 15%;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(248, 137, 94, 0.04) 15%,
+      rgba(240, 120, 60, 0.12) 35%,
+      rgba(248, 170, 110, 0.18) 50%,
+      rgba(240, 120, 60, 0.12) 65%,
+      rgba(248, 137, 94, 0.04) 85%,
+      transparent 100%);
+    filter: blur(20px);
+  }
+
+  /* Vertical subtle cross-flare */
+  .philo-glow-flare::after {
+    content: '';
+    position: absolute;
+    width: 3px; height: 300px;
+    top: -150px; left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg,
+      transparent 0%,
+      rgba(255, 230, 190, 0.15) 25%,
+      rgba(255, 245, 230, 0.3) 50%,
+      rgba(255, 230, 190, 0.15) 75%,
+      transparent 100%);
+    filter: blur(3px);
+  }
+
+  @keyframes flarePulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+  }
+
+  /* ── Edge vignette — strong for contrast ── */
+  .philo-vignette {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 50%, transparent 20%, rgba(0,0,0,0.9) 100%),
+      linear-gradient(to bottom,
+        rgba(0,0,0,0.95) 0%, transparent 15%,
+        transparent 85%, rgba(0,0,0,0.95) 100%);
+    pointer-events: none;
+  }
+
+  /* ── Text ── */
+  .philosophy-text {
+    position: relative;
+    z-index: 2;
+    font-family: var(--font-display);
+    font-weight: 200;
+    font-size: clamp(24px, 3vw, 42px);
+    color: var(--light3);
+    text-align: center;
+    line-height: 1.3;
+    max-width: var(--content-width);
+  }
+  .philosophy-text :global(.word) {
+    display: inline-block;
+    opacity: 0.08;
+    transition: opacity 0.5s ease, color 0.5s ease, text-shadow 0.5s ease;
+  }
+  .philosophy-text :global(.word.active) {
+    opacity: 1;
+    color: #f0e8e0;
+    text-shadow: 0 0 50px rgba(248, 180, 120, 0.15), 0 0 100px rgba(212, 90, 42, 0.06);
+  }
+</style>

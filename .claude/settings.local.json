@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "WebFetch(domain:vividand.co)",
+      "WebFetch(domain:akis.studio)",
+      "WebFetch(domain:x.ai)",
+      "WebFetch(domain:linear.app)",
+      "Bash(npm run build)"
+    ]
+  }
+}
